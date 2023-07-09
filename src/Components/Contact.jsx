@@ -11,7 +11,7 @@ function Contact() {
       <a href="tel:+918899155524" className='p-3 px-5 bg-green-400 rounded-full font-medium'>Order Now!</a>
       <br />
       <br />
-      <p className='select-text'>Our Email: alamfooods@gareebmail.com</p>
+      <p className='select-text'>Our Email: alamfooods@gareeebmail.com</p>
     </div>
     </div>
   )
