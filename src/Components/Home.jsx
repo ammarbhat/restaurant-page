@@ -1,9 +1,8 @@
 import React from 'react'
 function Home() {
   return (
-    <div className="home" id="home">
-        <img src="./backg.jpg" alt="" className="w-96 sm:w-1/3 m-auto" />
-        <p className="text-center mx-10 sm:mx-40 pb-12">Welcome to our place where you can find all types of your favourite foods in higest quality. Here at Al'am we make our products with finely chosen ingredients and materails. Our motive is to provdide you with quality foods here or at your doorstep.</p>
+    <div className="home px-6 py-16 sm:px-10 sm:py-24" id="home">
+        <p className="mx-auto max-w-5xl pb-12 text-center text-4xl font-semibold leading-tight tracking-tight text-gray-900 sm:text-6xl">Indian food for students in Yogyakarta. Student prices, order on WhatsApp, pickup near UII.</p>
         <hr className='line' />
     </div>
   )
