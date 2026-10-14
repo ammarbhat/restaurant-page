@@ -1,9 +1,9 @@
-import React from 'react'
-
 function Footer() {
   return (
-    <div className='py-5 bg-gray-400 text-black text-center'><p className='footer-content'>Ghar Jogja · campus preorder · Yogyakarta</p></div>
-
+    <footer className="site-footer">
+      <strong>Ghar Jogja</strong><br />
+      Campus preorder · Yogyakarta · Vegetarian Indian food for students
+    </footer>
   )
 }
 

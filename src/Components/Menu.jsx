@@ -1,6 +1,3 @@
-import React from 'react'
-
-
 function Menu() {
   return (
     <div className='text-center my-10 text-4xl'>

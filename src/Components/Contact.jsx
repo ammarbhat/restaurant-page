@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Contact() {
   return (
     <div className='flex justify-center mt-10' id="contact"><hr className='line' />

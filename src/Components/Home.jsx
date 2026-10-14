@@ -1,4 +1,3 @@
-import React from 'react'
 function Home() {
   return (
     <div className="home px-6 py-16 sm:px-10 sm:py-24" id="home">
