@@ -15,3 +15,5 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 
 .language-toggle{border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);padding:8px 12px;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap}.language-toggle:hover{background:var(--leaf-pale);color:var(--leaf)}@media(max-width:560px){.language-toggle{padding:7px 9px;font-size:.72rem}.nav-links{gap:2px}}
+
+.eyebrow{gap:8px}.eyebrow .language-toggle{margin-left:4px;padding:4px 9px;border-color:#2f674d35;background:#fffdf9;color:var(--leaf);font-size:.7rem}.eyebrow .language-toggle:hover{background:white;color:var(--spice)}

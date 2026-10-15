@@ -52,7 +52,6 @@ function MainApp() {
           <a className="logo" href="#top"><span className="logo-dot" aria-hidden="true" />Ghar Jogja</a>
           <nav className="nav-links" aria-label={language === 'en' ? 'Main navigation' : 'Navigasi utama'}>
             <a href="#menu">{t.nav[0]}</a><a href="#how">{t.nav[1]}</a><a className="nav-order" href="#order">{t.nav[2]}</a>
-            <button className="language-toggle" type="button" onClick={() => setLanguage(language === 'en' ? 'id' : 'en')} aria-label={`Switch language to ${t.language}`}>{t.language}</button>
           </nav>
         </div>
       </header>
@@ -60,7 +59,7 @@ function MainApp() {
       <main id="top" className="page-shell">
         <section className="hero">
           <div className="hero-copy">
-            <span className="eyebrow"><span aria-hidden="true">✦</span> {t.eyebrow}</span>
+            <span className="eyebrow"><span aria-hidden="true">✦</span> {t.eyebrow}<button className="language-toggle" type="button" onClick={() => setLanguage(language === 'en' ? 'id' : 'en')} aria-label={`Switch language to ${t.language}`}>{t.language}</button></span>
             <h1>{t.headline}</h1>
             <p className="lead">{t.lead}</p>
             <div className="hero-actions"><a className="button button-primary" href="#menu">{t.seeMenu} <span aria-hidden="true">↓</span></a><a className="button button-outline" href="#how">{t.how}</a></div>
