@@ -80,7 +80,7 @@ function MainApp() {
               </article>
             })}
           </div>
-          <div className="menu-note"><span className="note-mark" aria-hidden="true">i</span><p><strong>Phase 1 note</strong>The menu is vegetarian only. We do not claim a formal halal certificate. Ingredients are listed clearly, and food is cooked in a rented kitchen with an existing permit. The menu will grow after testing.</p></div>
+        
         </section>
 
         <section className="content-section how-section" id="how">
