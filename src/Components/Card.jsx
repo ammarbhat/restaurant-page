@@ -6,7 +6,7 @@ function Card(props) {
   const unitPrice = Number(props.price.replace(/\D/g, ''))
   const totalPrice = new Intl.NumberFormat('id-ID').format(unitPrice * quantity)
   const orderMessage = `Hi, I'd like to preorder:\n${quantity} x ${props.name}\nUnit price: ${props.price}\nTotal: Rp ${totalPrice}\nPickup: near UII, Yogyakarta.`
-  const orderUrl = `https://wa.me/919906630962?text=${encodeURIComponent(orderMessage)}`
+  const orderUrl = `https://wa.me/6285741965003?text=${encodeURIComponent(orderMessage)}`
 
   return (
     <article className='flex min-h-64 w-[calc(100%-1.5rem)] max-w-md border-2 border-gray-400 rounded-lg m-3 sm:m-7 sm:w-1/3 shadow-lg shadow-gray-300'>
