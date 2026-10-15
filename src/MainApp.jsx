@@ -64,7 +64,7 @@ function MainApp() {
         </section>
 
         <section className="content-section" id="menu">
-          <div className="section-head"><div><span className="section-kicker">COOKED WITH CARE</span><h2>The menu</h2></div><p>Short Phase 1 menu. Vegetarian only. Prices in Rupiah. Add what you want, then send one order.</p></div>
+          <div className="section-head"><div><span className="section-kicker">COOKED WITH CARE</span><h2>The menu</h2></div></div>
           <div className="menu-grid">
             {dishes.map((dish) => {
               const quantity = quantities[dish.id] || 0
