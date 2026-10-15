@@ -47,7 +47,7 @@ function MainApp() {
       <main id="top" className="page-shell">
         <section className="hero">
           <div className="hero-copy">
-            <span className="eyebrow"><span aria-hidden="true">✦</span> Vegetarian · Campus preorder · Phase 1</span>
+            <span className="eyebrow"><span aria-hidden="true">✦</span> Vegetarian · Campus preorder </span>
             <h1>Home-style Indian food, <em>made for student budgets.</em></h1>
             <p className="lead">Fresh plates from a rented kitchen in Yogyakarta. Pick your items, send one WhatsApp message, and collect near UII.</p>
             <div className="hero-actions"><a className="button button-primary" href="#menu">See the menu <span aria-hidden="true">↓</span></a><a className="button button-outline" href="#how">How it works</a></div>
