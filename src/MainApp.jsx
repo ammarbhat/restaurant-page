@@ -23,6 +23,7 @@ const formatPrice = (amount) => `Rp ${amount.toLocaleString('id-ID')}`
 function MainApp() {
   const [quantities, setQuantities] = useState({})
   const [spices, setSpices] = useState({})
+  const [pickupWindow, setPickupWindow] = useState('lunch')
   const [language, setLanguage] = useState('en')
   const t = copy[language]
   const selectedItems = useMemo(() => dishes.filter((dish) => quantities[dish.id] > 0), [quantities])
@@ -34,13 +35,16 @@ function MainApp() {
   }
 
   const sendOrder = () => {
+    const pickupLabel = pickupWindow === 'lunch'
+      ? (language === 'en' ? 'Lunch' : 'Makan siang')
+      : (language === 'en' ? 'After class' : 'Setelah kelas')
     const lines = selectedItems.length
       ? [t.greeting, ...selectedItems.map((dish) => {
         const spice = dish.spice ? ` (${t.spiceOptions[['Mild', 'Medium', 'Spicy'].indexOf(spices[dish.id] || 'Medium')]})` : ''
         const name = dish.name[language === 'en' ? 0 : 1]
         const qty = quantities[dish.id]
         return `- ${name}${spice} x${qty} = ${formatPrice(qty * dish.price)}`
-      }), `${t.total} ${formatPrice(total)}`, `${t.pickup} `, `${t.name} `]
+      }), `${t.total} ${formatPrice(total)}`, `${t.pickup} ${pickupLabel}`, `${t.name} `]
       : [t.ask]
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener,noreferrer')
   }
@@ -97,11 +101,11 @@ function MainApp() {
           <div className="steps">{t.steps.map(([title, text], index) => <article className="step-card" key={title}><span className="step-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </section>
 
-        <section id="order" className="order-section"><div className="order-panel"><span className="section-kicker">{t.fresh}</span><h2>{t.ready}</h2><p>{t.orderText} <a href="https://wa.me/6285741965003" target="_blank" rel="noreferrer">+62 857-4196-5003</a>.</p><button className="button button-light" type="button" onClick={sendOrder}>{t.order} <span aria-hidden="true">↗</span></button></div></section>
+        <section id="order" className="order-section"><div className="order-panel"><span className="section-kicker">{t.fresh}</span><h2>{t.ready}</h2><p>{t.orderText} <a href="https://wa.me/6285741965003" target="_blank" rel="noreferrer">+62 857-4196-5003</a>.</p><fieldset className="pickup-options"><legend>{language === 'en' ? 'Choose a pickup time' : 'Pilih waktu pengambilan'}</legend><div className="pickup-option-list"><label><input type="radio" name="pickup-window" value="lunch" checked={pickupWindow === 'lunch'} onChange={() => setPickupWindow('lunch')} /><span>{language === 'en' ? 'Lunch' : 'Makan siang'}</span></label><label><input type="radio" name="pickup-window" value="after-class" checked={pickupWindow === 'after-class'} onChange={() => setPickupWindow('after-class')} /><span>{language === 'en' ? 'After class' : 'Setelah kelas'}</span></label></div></fieldset><button className="button button-light" type="button" onClick={sendOrder}>{t.order} <span aria-hidden="true">↗</span></button></div></section>
       </main>
       <Footer language={language} />
       <div className={`cart-bar ${count > 0 ? 'cart-visible' : ''}`} role="region" aria-label={t.yourOrder} aria-live="polite" aria-hidden={count === 0}>
-        <div className="cart-inner"><div className="cart-info"><span>{count} {count === 1 ? t.item : t.items}</span><strong>{formatPrice(total)}</strong></div><div className="cart-actions"><button className="cart-clear" type="button" onClick={() => setQuantities({})}>{t.clear}</button><button className="button cart-send" type="button" onClick={sendOrder}>{t.order} <span aria-hidden="true">↗</span></button></div></div>
+        <div className="cart-inner"><div className="cart-info"><span>{count} {count === 1 ? t.item : t.items}</span><strong>{formatPrice(total)}</strong></div><fieldset className="cart-pickup-options"><legend>{language === 'en' ? 'Pickup time' : 'Waktu pengambilan'}</legend><div className="cart-pickup-option-list"><label><input type="radio" name="pickup-window-cart" value="lunch" checked={pickupWindow === 'lunch'} onChange={() => setPickupWindow('lunch')} /><span>{language === 'en' ? 'Lunch' : 'Makan siang'}</span></label><label><input type="radio" name="pickup-window-cart" value="after-class" checked={pickupWindow === 'after-class'} onChange={() => setPickupWindow('after-class')} /><span>{language === 'en' ? 'After class' : 'Setelah kelas'}</span></label></div></fieldset><div className="cart-actions"><button className="cart-clear" type="button" onClick={() => setQuantities({})}>{t.clear}</button><button className="button cart-send" type="button" onClick={sendOrder}>{t.order} <span aria-hidden="true">↗</span></button></div></div>
       </div>
     </>
   )

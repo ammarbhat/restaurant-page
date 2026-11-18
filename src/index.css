@@ -14,6 +14,33 @@
 @media(max-width:370px){.nav-links a{padding-inline:7px}.dish-card{grid-template-columns:98px minmax(0,1fr)}.dish-image{min-height:210px}.dish-content{padding-inline:10px}.quantity-label{display:none}.cart-clear{font-size:.75rem}.cart-send{font-size:.72rem;padding-inline:9px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 
+.order-section{padding-top:88px}
+.order-panel{padding:78px 50px 82px;border:3px solid var(--gold);box-shadow:0 20px 46px #24190f26}
+.order-panel .section-kicker{font-size:.84rem;letter-spacing:.16em}
+.order-panel h2{font-size:clamp(3rem,6vw,4rem);margin-bottom:18px}
+.order-panel p{max-width:660px;margin-bottom:34px;font-size:1.15rem;line-height:1.75}
+.order-panel .button-light{min-height:76px;padding:21px 44px;border-radius:16px;font-size:1.2rem;box-shadow:0 6px 0 #dce8df;transition:background .16s,transform .12s,box-shadow .12s}
+.order-panel .button-light:hover{box-shadow:0 7px 0 #dce8df;transform:translateY(-2px)}
+.order-panel .button-light:active{box-shadow:0 2px 0 #dce8df;transform:translateY(2px)}
+@media(max-width:560px){.order-section{padding-top:58px}.order-panel{padding:54px 22px 56px}.order-panel h2{font-size:clamp(2.65rem,12vw,3.2rem)}.order-panel p{font-size:1.02rem;margin-bottom:28px}.order-panel .button-light{width:100%;min-height:66px;padding-inline:18px;font-size:1.08rem}}
+.pickup-options{max-width:560px;margin:0 auto 30px;padding:0;border:0;text-align:left}
+.pickup-options legend{display:block;width:100%;margin-bottom:12px;color:#f8fff9;font-size:1.02rem;font-weight:700}
+.pickup-option-list{display:flex;justify-content:center;gap:12px}
+.pickup-options label{flex:1;max-width:274px;min-height:72px;padding:14px 18px;display:flex;align-items:center;gap:12px;border:2px solid #ffffff70;border-radius:16px;background:#ffffff12;color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.pickup-options label:has(input:checked){border-color:var(--gold);background:#fff;color:var(--leaf)}
+.pickup-options label:focus-within{outline:3px solid #f2c66d;outline-offset:3px}
+.pickup-options input{width:21px;height:21px;flex:none;margin:0;accent-color:var(--leaf)}
+@media(max-width:420px){.pickup-options{margin-bottom:24px}.pickup-options legend{margin-bottom:8px}.pickup-option-list{flex-direction:column;gap:9px}.pickup-options label{max-width:none;min-height:62px}}
+.cart-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px}
+.cart-pickup-options{width:max-content;max-width:100%;min-width:0;margin:0 auto;padding:0;border:0;color:#fff}
+.cart-pickup-options legend{display:block;width:100%;margin-bottom:4px;padding:0;color:#e2dbd3;font-size:.72rem;font-weight:600;white-space:nowrap}
+.cart-pickup-option-list{display:flex;align-items:center;gap:7px}
+.cart-pickup-options label{min-height:38px;padding:6px 10px;display:flex;align-items:center;gap:6px;border:1px solid #ffffff45;border-radius:10px;background:#ffffff12;color:#fff;font-size:.73rem;font-weight:700;white-space:nowrap;cursor:pointer}
+.cart-pickup-options label:has(input:checked){border-color:var(--gold);background:#fff;color:var(--leaf)}
+.cart-pickup-options label:focus-within{outline:2px solid #f2c66d;outline-offset:2px}
+.cart-pickup-options input{width:15px;height:15px;flex:none;margin:0;accent-color:var(--leaf)}
+@media(max-width:760px){.cart-inner{grid-template-columns:minmax(0,1fr) auto;row-gap:10px}.cart-pickup-options{grid-column:1/-1;grid-row:2;width:100%;margin:0}.cart-pickup-options legend{margin-bottom:5px}.cart-pickup-option-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.cart-pickup-options label{justify-content:center}.cart-info{grid-column:1;grid-row:1}.cart-actions{grid-column:2;grid-row:1}}
+
 .language-toggle{border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);padding:8px 12px;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap}.language-toggle:hover{background:var(--leaf-pale);color:var(--leaf)}@media(max-width:560px){.language-toggle{padding:7px 9px;font-size:.72rem}.nav-links{gap:2px}}
 
 .eyebrow{gap:8px}.eyebrow .language-toggle{margin-left:4px;padding:4px 9px;border-color:#2f674d35;background:#fffdf9;color:var(--leaf);font-size:.7rem}.eyebrow .language-toggle:hover{background:white;color:var(--spice)}
