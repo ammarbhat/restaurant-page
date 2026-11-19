@@ -3,10 +3,10 @@ import Footer from './Components/Footer'
 
 const whatsappNumber = '6285741965003'
 const dishes = [
-  { id: 'samosa', name: ['Samosa', 'Samosa'], price: 15000, image: '/samosa.jpg', alt: ['Golden samosas ready to serve', 'Samosa keemasan siap disajikan'], tags: [0, 1], description: ['Crisp pastry filled with spiced potato. Good between classes.', 'Pastry renyah berisi kentang berbumbu. Cocok untuk camilan di sela kelas.'] },
-  { id: 'pakora', name: ['Pakora', 'Pakora'], price: 15000, image: '/indian-cuisine-paneer-pakora-cheese-photo.webp', alt: ['Freshly fried pakora', 'Pakora yang baru digoreng'], tags: [0, 1], description: ['Golden vegetable fritters, served hot. Light and easy to share.', 'Gorengan sayur keemasan, disajikan hangat. Ringan dan pas untuk berbagi.'] },
-  { id: 'paneer', name: ['Paneer plate', 'Hidangan paneer'], price: 25000, image: '/shahi-paneer-paneer-kadai_926199-2764613.webp', alt: ['Paneer curry served with rice', 'Kari paneer disajikan dengan nasi'], tags: [0, 2], description: ['Paneer curry with rice. Pick your spice level below.', 'Kari paneer dengan nasi. Pilih tingkat kepedasan di bawah.'], spice: true },
-  { id: 'combo', name: ['Combo', 'Paket combo'], price: 36000, image: '/i-ate-indian-curry-combo-plate-v0-nw9b7fetegue1.webp', alt: ['Indian curry and rice combo plate', 'Paket kari India dan nasi'], tags: [0, 3], description: ['One samosa plus a paneer plate. A fuller meal at a student price.', 'Satu samosa dan satu hidangan paneer. Porsi lengkap dengan harga pelajar.'], spice: true },
+  { id: 'samosa', name: ['Samosa', 'Samosa'], price: 15000, image: '/samosa.jpg', alt: ['Golden samosas ready to serve', 'Samosa keemasan siap disajikan'], tags: [0, 1], description: ['Crisp pastry filled with spiced potato. Good between classes.', 'Pastry renyah berisi kentang berbumbu. Cocok untuk camilan di sela kelas.'], ingredients: ['Potato, peas, onion, pastry, spices', 'Kentang, kacang polong, bawang, pastry, rempah'] },
+  { id: 'pakora', name: ['Pakora', 'Pakora'], price: 15000, image: '/indian-cuisine-paneer-pakora-cheese-photo.webp', alt: ['Freshly fried pakora', 'Pakora yang baru digoreng'], tags: [0, 1], description: ['Golden vegetable fritters, served hot. Light and easy to share.', 'Gorengan sayur keemasan, disajikan hangat. Ringan dan pas untuk berbagi.'], ingredients: ['Vegetables, chickpea flour, spices', 'Sayuran, tepung kacang arab, rempah'] },
+  { id: 'paneer', name: ['Paneer plate', 'Hidangan paneer'], price: 25000, image: '/shahi-paneer-paneer-kadai_926199-2764613.webp', alt: ['Paneer curry served with rice', 'Kari paneer disajikan dengan nasi'], tags: [0, 2], description: ['Paneer curry with rice. Pick your spice level below.', 'Kari paneer dengan nasi. Pilih tingkat kepedasan di bawah.'], ingredients: ['Paneer, tomato, cream, rice, spices', 'Paneer, tomat, krim, nasi, rempah'], spice: true },
+  { id: 'combo', name: ['Combo', 'Paket combo'], price: 36000, image: '/i-ate-indian-curry-combo-plate-v0-nw9b7fetegue1.webp', alt: ['Indian curry and rice combo plate', 'Paket kari India dan nasi'], tags: [0, 3], description: ['One samosa plus a paneer plate. A fuller meal at a student price.', 'Satu samosa dan satu hidangan paneer. Porsi lengkap dengan harga pelajar.'], ingredients: ['Samosa, paneer curry, rice, spices', 'Samosa, kari paneer, nasi, rempah'], spice: true },
 ]
 
 const copy = {
@@ -26,6 +26,7 @@ function MainApp() {
   const [pickupWindow, setPickupWindow] = useState('lunch')
   const [language, setLanguage] = useState('en')
   const t = copy[language]
+  const ingredientLabel = language === 'en' ? 'Ingredients' : 'Bahan-bahan'
   const selectedItems = useMemo(() => dishes.filter((dish) => quantities[dish.id] > 0), [quantities])
   const count = selectedItems.reduce((sum, dish) => sum + quantities[dish.id], 0)
   const total = selectedItems.reduce((sum, dish) => sum + dish.price * quantities[dish.id], 0)
@@ -88,6 +89,7 @@ function MainApp() {
                   <div className="dish-heading"><h3>{name}</h3><span className="price">{formatPrice(dish.price)}</span></div>
                   <div className="tags">{dish.tags.map((tag) => <span className={`tag ${tag ? 'tag-warm' : ''}`} key={tag}>{t.tags[tag]}</span>)}</div>
                   <p className="dish-description">{dish.description[language === 'en' ? 0 : 1]}</p>
+                  <p className="dish-ingredients"><strong>{ingredientLabel}:</strong> {dish.ingredients[language === 'en' ? 0 : 1]}</p>
                   {dish.spice && <label className="spice-select">{t.spice}<select value={spices[dish.id] || 'Medium'} onChange={(event) => setSpices((current) => ({ ...current, [dish.id]: event.target.value }))}>{['Mild', 'Medium', 'Spicy'].map((value, index) => <option value={value} key={value}>{t.spiceOptions[index]}</option>)}</select></label>}
                   <div className="dish-foot"><span className="quantity-label">{t.quantity}</span><div className="stepper" aria-label={`${name} · ${t.quantity}`}><button type="button" onClick={() => changeQuantity(dish.id, -1)} aria-label={`${t.remove} ${name}`} disabled={quantity === 0}>−</button><output aria-live="polite">{quantity}</output><button type="button" onClick={() => changeQuantity(dish.id, 1)} aria-label={`${t.add} ${name}`} disabled={quantity === 10}>+</button></div></div>
                 </div>
